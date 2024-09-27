@@ -1,5 +1,5 @@
-# DUIKT Python practical tasks
+## DUIKT Python practical tasks
 
-**_Riabko Yuliia ISD-22_**
+### Riabko Yuliia ISD-32
 
-Each practical task contains: file for each task and screenshots showing how code works
+This repository contains folders with practical tasks. Each task is a [university](https://duikt.edu.ua/ua/) homework. :octocat:
