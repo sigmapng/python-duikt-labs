@@ -24,5 +24,5 @@ This repository is organized into folders, each representing tasks from differen
 - `third-year-labs`
 
 <div id="header" align="center">
-  <img src="GUWhpBJXcAAGk2X.jpg" alt="Python meme" width="300">
+  <img src="https://pbs.twimg.com/media/GUWhpBJXcAAGk2X?format=jpg&name=small" alt="Python meme" width="300">
 </div>
