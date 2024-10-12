@@ -1,17 +1,7 @@
-class Student:
-
-    def __init__(
-        self,
-        name,
-        date_of_birth,
-        group,
-    ):
-        self.name = name
-        self.date_of_birth = date_of_birth
-        self.group = group
+from abc import ABC, abstractmethod
 
 
-class Academic_performance:
+class Performance(ABC):
 
     def __init__(self, list_of_subjects, list_of_grades):
         self.list_of_subjects = list_of_subjects
@@ -19,3 +9,7 @@ class Academic_performance:
 
     def average_mark(self):
         return sum(self.list_of_grades) / len(self.list_of_grades)
+
+    @abstractmethod
+    def save(self, file_path):
+        pass
