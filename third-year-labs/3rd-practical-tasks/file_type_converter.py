@@ -1,6 +1,5 @@
 import json
 import xml.etree.ElementTree as ET
-from save_dictionary import SaveDictionary
 
 
 def convert_dictionary_to_json(dictionary):
