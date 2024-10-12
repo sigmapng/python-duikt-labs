@@ -1,0 +1,22 @@
+{
+    "name": "Yuliia",
+    "date_of_birth": "21 april",
+    "group": "ISD-32",
+    "list_of_subjects": [
+        "Python",
+        "IoT",
+        "VoIP"
+    ],
+    "list_of_grades": [
+        90.0,
+        100.0,
+        80.0
+    ],
+    "list_of_desired_grades": [
+        90.0,
+        100.0,
+        80.0
+    ],
+    "average_mark": "90.000",
+    "average_desired_mark": "90.000"
+}

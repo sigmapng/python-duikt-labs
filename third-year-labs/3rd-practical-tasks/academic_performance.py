@@ -1,12 +1,10 @@
-from abc import ABC, abstractmethod
-from student import Student
+from performance import Performance
 
-class AcademicPerformance(ABC):
-    @abstractmethod
+
+class AcademicPerformance(Performance):
+
     def __init__(self, list_of_subjects, list_of_grades):
-        self.list_of_subjects = list_of_subjects
-        self.list_of_grades = list_of_grades
+        super().__init__(list_of_subjects, list_of_grades)
 
     def average_mark(self):
         return sum(self.list_of_grades) / len(self.list_of_grades)
-
