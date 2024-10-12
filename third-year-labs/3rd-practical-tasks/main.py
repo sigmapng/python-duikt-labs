@@ -1,4 +1,4 @@
-from student_obj_constructor import StudentFullInfo  #error: ModuleNotFoundError: No module named 'student_obj_constructor'
+from full_student_info import StudentFullInfo
 
 
 def create_student_profile():
