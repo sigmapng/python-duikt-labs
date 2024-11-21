@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ blogger.name }}'s Profile</title>
+</head>
+
+<body>
+  <h1>{{ blogger.name }}</h1>
+  <p>Category: {{ blogger.category }}</p>
+  <p>Description: {{ blogger.description }}</p>
+  <h2>Social Links</h2>
+  <ul>
+    {% for platform, link in blogger.social_links.items %}
+    <li><a href="{{ link }}">{{ platform }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'profiles' %}">Back to Profiles</a>
+</body>
+
+</html>
