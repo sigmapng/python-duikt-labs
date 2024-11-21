@@ -1,0 +1,21 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Random Blogger</h2>
+{% if random_blogger %}
+<p>{{ random_blogger.name }}</p>
+<p>{{ random_blogger.description }}</p>
+{% else %}
+<p>No bloggers available.</p>
+{% endif %}
+
+<h2>Top 5 Bloggers</h2>
+<ul>
+  {% for blogger in top_bloggers %}
+  <li>{{ blogger.name }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

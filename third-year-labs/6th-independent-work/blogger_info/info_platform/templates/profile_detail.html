@@ -1,0 +1,11 @@
+<!-- profile_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Profile Detail{% endblock %}
+
+{% block content %}
+<h2>{{ blogger.name }}</h2>
+<p>{{ blogger.description }}</p>
+<p>Category: {{ blogger.category }}</p>
+<p>Social Links: {{ blogger.social_links }}</p>
+{% endblock %}

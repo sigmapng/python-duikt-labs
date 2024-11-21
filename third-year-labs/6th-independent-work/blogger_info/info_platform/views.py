@@ -1,22 +1,56 @@
-from django.shortcuts import render, redirect
-from .models import bloggers
+# views.py
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
+from .models import Blogger
+import random
+from .forms import BloggerRegistrationForm, BloggerLoginForm
+from django.contrib.auth import authenticate, login
 
 
-def home(request):
-    return render(request, 'home.html')
+def index(request):
+    bloggers = Blogger.objects.all()
+    random_blogger = random.choice(bloggers) if bloggers else None
+    top_bloggers = bloggers[:5]
+    return render(request, 'index.html', {'random_blogger': random_blogger, 'top_bloggers': top_bloggers})
 
 
-def profiles(request):
-    return render(request, 'profiles.html', {'bloggers': bloggers})
+def profile_list(request):
+    bloggers = Blogger.objects.all()
+    return render(request, 'profile_list.html', {'bloggers': bloggers})
 
 
-def profile_detail(request, name):
-    blogger = next((b for b in bloggers if b.name == name), None)
-    if blogger:
-        return render(request, 'profile_detail.html', {'blogger': blogger})
-    else:
-        return render(request, '404.html', status=404)
+def profile_detail(request, blogger_id):
+    blogger = get_object_or_404(Blogger, id=blogger_id)
+    return render(request, 'profile_detail.html', {'blogger': blogger})
 
 
 def news(request):
-    return redirect('home')
+    return HttpResponseRedirect('/')
+
+
+def register_blogger(request):
+    if request.method == 'POST':
+        form = BloggerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('profile_list')
+    else:
+        form = BloggerRegistrationForm()
+    return render(request, 'register_blogger.html', {'form': form})
+
+
+def login_blogger(request):
+    if request.method == 'POST':
+        form = BloggerLoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=email, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('profile_list')
+            else:
+                form.add_error(None, 'Invalid email or password')
+    else:
+        form = BloggerLoginForm()
+    return render(request, 'login.html', {'form': form})
