@@ -1,33 +1,22 @@
 from django import forms
+from django.db import models
 from .models import Blogger
+from datetime import date
 
 
-class BloggerRegistrationForm(forms.ModelForm):
-    class Meta:
-        model = Blogger
-        fields = ['name', 'category', 'description', 'social_links']
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'category': forms.TextInput(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control'}),
-            'social_links': forms.TextInput(attrs={'class': 'form-control'}),
-        }
-
-    def clean(self):
-        cleaned_data = super().clean()
-        name = cleaned_data.get('name')
-        category = cleaned_data.get('category')
-
-        if not name:
-            self.add_error('name', 'This field is required.')
-
-        if not category:
-            self.add_error('category', 'This field is required.')
-        return cleaned_data
+class BloggerRegistrationForm(forms.Form):
+    login = forms.CharField(max_length=100)
+    password = forms.CharField(max_length=100)
+    name = forms.CharField(max_length=100)
+    description = forms.CharField(widget=forms.Textarea)
+    blog_category = forms.ChoiceField(
+        choices=[('tech', 'Tech'), ('lifestyle',
+                                    'Lifestyle'), ('food', 'Food')]
+    )
 
 
 class BloggerLoginForm(forms.Form):
-    email = forms.EmailField(widget=forms.EmailInput(
+    login = forms.EmailField(widget=forms.EmailInput(
         attrs={'class': 'form-control'}))
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control'}))

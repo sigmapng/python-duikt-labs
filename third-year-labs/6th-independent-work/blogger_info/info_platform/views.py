@@ -28,12 +28,22 @@ def news(request):
     return HttpResponseRedirect('/')
 
 
+def success(request):
+    return render(request, 'success.html')
+
+
 def register_blogger(request):
     if request.method == 'POST':
         form = BloggerRegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('profile_list')
+            Blogger.objects.create(
+                login=form.cleaned_data['login'],
+                password=form.cleaned_data['password'],
+                name=form.cleaned_data['name'],
+                description=form.cleaned_data['description'],
+                category=form.cleaned_data['blog_category'],
+            )
+            return redirect('success')
     else:
         form = BloggerRegistrationForm()
     return render(request, 'register_blogger.html', {'form': form})
@@ -53,4 +63,4 @@ def login_blogger(request):
                 form.add_error(None, 'Invalid email or password')
     else:
         form = BloggerLoginForm()
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'login_blogger.html', {'form': form})
