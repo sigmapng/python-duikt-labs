@@ -19,13 +19,11 @@ ul {
   list-style: none;
   padding: 0;
 }
-
 ul li {
   display: initial;
   color: #333;
   text-decoration: none;
 }
-
 ul a {
   color: #333;
   text-decoration: none;
@@ -45,7 +43,6 @@ header {
   color: #f4f4f4;
   padding: 10px 0;
 }
-
 header nav {
   display: flex;
   flex-direction: row;
@@ -53,14 +50,12 @@ header nav {
   align-items: center;
   margin: 10px 0 15px;
 }
-
 header li {
   display: initial;
   color: #f4f4f4;
   text-decoration: none;
   margin: 0 10px;
 }
-
 header a {
   color: #f4f4f4;
 }
@@ -101,18 +96,16 @@ footer {
   align-self: center;
   width: 40%;
 }
-
-.container.registration_form form>div,
-.container.registration_form form>input,
-.container.registration_form form>select,
-.container.registration_form form>textarea,
-.container.registration_form form>label {
+.container.registration_form form > div,
+.container.registration_form form > input,
+.container.registration_form form > select,
+.container.registration_form form > textarea,
+.container.registration_form form > label {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
 }
-
 .container.registration_form form textarea,
 .container.registration_form form input,
 .container.registration_form form select {
@@ -142,9 +135,6 @@ footer {
   font-weight: bold;
   font-size: 0.9rem;
 }
-
 .btn-primary:hover {
   background-color: rgba(51, 51, 51, 0.6196078431);
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
