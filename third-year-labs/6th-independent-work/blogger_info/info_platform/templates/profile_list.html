@@ -5,13 +5,13 @@
 
 {% block content %}
 <main>
-    <div class="container">
-        <h2>Bloggers</h2>
-        <ul>
-          {% for blogger in bloggers %}
-          <li><a href="{% url 'profile_detail' blogger.id %}">{{ blogger.name }}</a></li>
-          {% endfor %}
-        </ul>
-    </div>
+  <div class="container">
+    <h2>Bloggers</h2>
+    <ul>
+      {% for blogger in bloggers %}
+      <li><a href="{% url 'profile_detail' blogger.id %}">{{ blogger.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </main>
 {% endblock %}

@@ -25,7 +25,7 @@ def profile_detail(request, blogger_id):
 
 
 def news(request):
-    return HttpResponseRedirect('/')
+    return render(request, 'news.html')
 
 
 def success(request):

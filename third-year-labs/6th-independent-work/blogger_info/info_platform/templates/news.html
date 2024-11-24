@@ -1,0 +1,20 @@
+<!-- news.html -->
+{% extends 'base.html' %}
+
+{% block title %}Latest News{% endblock %}
+
+{% block content %}
+<main>
+  <div class="container">
+    <h1>Latest News</h1>
+    <div class="news-articles">
+      {% for article in articles %}
+      <article class="news-item">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.summary }} <a href="{{ article.url }}">Read more...</a></p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -6,25 +6,47 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
   font-family: Helvetica, sans-serif;
   background-color: #f4f4f4;
-  font-size: 1rem;
+  min-height: 100vh;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  justify-content: initial;
+  align-items: initial;
+  flex: 1;
 }
 
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   background-color: #333;
   color: #f4f4f4;
   padding: 10px 0;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 15px;
+}
+header nav ul {
+  list-style: none;
+  padding: 0;
+}
+header nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+header nav ul li a {
+  color: #f4f4f4;
+  text-decoration: none;
 }
 
 main {
@@ -33,53 +55,75 @@ main {
 }
 
 footer {
+  background-color: #333;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #333;
-  color: #fff;
-  font-size: 0.9rem;
-  padding: 15px 0;
+  justify-content: center;
+  align-items: start;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
   font-family: "Lucida Console", monospace;
   margin: 10px 0 5px;
+  align-self: center;
+  font-size: 1.3rem;
 }
 
-li {
-  background-color: #fff;
-  margin: 5px 0;
+#success-message {
+  align-self: center;
+  justify-self: center;
+}
+
+.container.registration_form form {
+  justify-self: center;
+  align-self: center;
+  width: 40%;
+}
+.container.registration_form form > div,
+.container.registration_form form > input,
+.container.registration_form form > select,
+.container.registration_form form > textarea,
+.container.registration_form form > label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.container.registration_form form textarea,
+.container.registration_form form input,
+.container.registration_form form select {
   padding: 10px;
+  margin: 5px 0 10px;
+  border: rgba(51, 51, 51, 0.6196078431) 0.5px solid;
+  border-radius: 4px;
+  width: 100%;
 }
 
-a {
-  text-decoration: none;
+.form-control::-moz-placeholder {
   color: #333;
 }
 
-a:hover {
-  text-decoration: underline;
+.form-control::placeholder {
+  color: #333;
 }
 
-header nav {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0 15px;
-}
-
-header nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-header nav ul li {
-  display: inline;
-  margin: 0 10px;
+.btn-primary {
   background-color: #333;
-}
-
-header nav ul li a {
   color: #f4f4f4;
-  text-decoration: none;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
+.btn-primary:hover {
+  background-color: rgba(51, 51, 51, 0.6196078431);
+}/*# sourceMappingURL=style.css.map */

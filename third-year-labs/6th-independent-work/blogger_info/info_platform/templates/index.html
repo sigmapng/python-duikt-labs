@@ -4,18 +4,22 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h2>Random Blogger</h2>
-{% if random_blogger %}
-<p>{{ random_blogger.name }}</p>
-<p>{{ random_blogger.description }}</p>
-{% else %}
-<p>No bloggers available.</p>
-{% endif %}
+<main>
+  <div class="container">
+    <h2>Random Blogger</h2>
+    {% if random_blogger %}
+    <p>{{ random_blogger.name }}</p>
+    <p>{{ random_blogger.description }}</p>
+    {% else %}
+    <p>No bloggers available.</p>
+    {% endif %}
 
-<h2>Top 5 Bloggers</h2>
-<ul>
-  {% for blogger in top_bloggers %}
-  <li>{{ blogger.name }}</li>
-  {% endfor %}
-</ul>
+    <h2>Top 5 Bloggers</h2>
+    <ul>
+      {% for blogger in top_bloggers %}
+      <li>{{ blogger.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>
 {% endblock %}
