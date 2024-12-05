@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Student Registration</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'students/style.css' %}">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Register Student and Grades</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ student_form.as_p }}
+      {{ grade_form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+    <h2>Registered Students and Grades</h2>
+    <ul>
+      {% for student in students %}
+      <li id="student-name">{{ student.first_name }} {{ student.last_name }}</li>
+      <ul>
+        {% for grade in grades %}
+        {% if grade.student == student %}
+        <li> –– {{ grade.subject }}: {{ grade.grade }}</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+
+</html>
